@@ -48,7 +48,7 @@
 	"forwardPorts": [5000, 5001, 1433],
 
 	// Post create commands to run after the container is created.
-	"postCreateCommand": "bash .devcontainer/sql/postCreateCommand.sh 'database/Library/bin/Debug'",
+	"postCreateCommand": "bash /workspace/.devcontainer/sql/postCreateCommand.sh 'database/Library/bin/Debug'",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
