@@ -1,0 +1,43 @@
+### Get all authors
+GET {{baseUrl}}/api/Author
+
+### Get author by ID
+GET {{baseUrl}}/api/Author/id/1
+
+### Get author by ID (alternative format)
+GET {{baseUrl}}/api/Author/1
+
+### Create new author
+POST {{baseUrl}}/api/Author
+Content-Type: application/json
+
+{
+  "first_name": "Jane",
+  "middle_name": "Marie",
+  "last_name": "Doe"
+}
+
+### Update author
+PUT {{baseUrl}}/api/Author/id/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "first_name": "John",
+  "middle_name": "Michael",
+  "last_name": "Smith"
+}
+
+### Patch author (partial update)
+PATCH {{baseUrl}}/api/Author/id/1
+Content-Type: application/json
+
+{
+  "first_name": "Johnny"
+}
+
+### Delete author
+DELETE {{baseUrl}}/api/Author/id/1
+
+### Get books by specific author (if relationship endpoint exists)
+GET {{baseUrl}}/api/Author/1/books

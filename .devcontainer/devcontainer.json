@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. 
 // For config options, see the README at: https://github.com/devcontainers/templates/tree/main/src/dotnet-mssql
 {
-	"name": "Data API builder and Azure SQL",
+	"name": "Data API builder and SQL 2025 Database Dev Container with Blazor",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspace",
@@ -37,7 +37,9 @@
 				"ms-mssql.mssql",
 				"ms-vscode.vscode-node-azure-pack",
 				"github.copilot",
-				"github.codespaces"
+				"github.codespaces",
+				"jerry-nixon.omnibus-data-api-builder",  // Add this for DAB utilities
+				"humao.rest-client" // Add REST Client extension for testing APIs
 			]
 		}
 	},

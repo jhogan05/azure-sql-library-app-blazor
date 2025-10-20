@@ -1,0 +1,42 @@
+### Get all books
+GET {{baseUrl}}/api/Book
+
+### Get book by ID
+GET {{baseUrl}}/api/Book/id/1
+
+### Get book by ID (alternative format)
+GET {{baseUrl}}/api/Book/1
+
+### Create new book
+POST {{baseUrl}}/api/Book
+Content-Type: application/json
+
+{
+  "title": "Test Book from REST Client",
+  "isbn": "978-0-123456-78-9",
+  "pages": 250,
+  "publication_year": 2025
+}
+
+### Update book
+PUT {{baseUrl}}/api/Book/id/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Updated Book Title",
+  "isbn": "978-0-123456-78-9",
+  "pages": 300,
+  "publication_year": 2025
+}
+
+### Patch book (partial update)
+PATCH {{baseUrl}}/api/Book/id/1
+Content-Type: application/json
+
+{
+  "title": "Partially Updated Title"
+}
+
+### Delete book
+DELETE {{baseUrl}}/api/Book/id/1

@@ -1,0 +1,69 @@
+### Simple GraphQL query - Get all books
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "{ books { id title isbn pages publication_year } }"
+}
+
+### GraphQL query - Get books with authors
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "{ books { id title isbn authors { id first_name last_name } } }"
+}
+
+### GraphQL query - Get all authors
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "{ authors { id first_name middle_name last_name } }"
+}
+
+### GraphQL query - Get authors with their books
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "{ authors { id first_name last_name books { id title isbn } } }"
+}
+
+### GraphQL query with variables - Get book by ID
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "query GetBook($id: Int!) { books(filter: { id: { eq: $id } }) { id title isbn authors { first_name last_name } } }",
+  "variables": {
+    "id": 1
+  }
+}
+
+### GraphQL query - Search books by title
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "query SearchBooks($title: String!) { books(filter: { title: { contains: $title } }) { id title isbn publication_year } }",
+  "variables": {
+    "title": "Test"
+  }
+}
+
+### GraphQL mutation - Create new book (if supported)
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "mutation": "mutation CreateBook($book: BookInput!) { createBook(item: $book) { id title } }",
+  "variables": {
+    "book": {
+      "title": "GraphQL Created Book",
+      "isbn": "978-0-987654-32-1",
+      "pages": 200,
+      "publication_year": 2025
+    }
+  }
+}

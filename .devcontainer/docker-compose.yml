@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        # Update 'VARIANT' to pick a version of .NET: 6.0-focal, 7.0-bullseye, 8.0-bookworm (default)
-        VARIANT: "8.0-bookworm"
+        # Update 'VARIANT' to pick a version of .NET: 6.0-focal, 7.0-bullseye, 8.0-bookworm , 9.0-bookworm, 10.0-noble (default)
+        VARIANT: "10.0-noble"
 
     volumes:
       - ..:/workspace:cached
@@ -24,12 +24,14 @@ services:
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    hostname: SQL-Library
-    container_name: SQL-Library
+    image: mcr.microsoft.com/mssql/server:2025-latest
+    hostname: sqlserver2025-librarydb
+    container_name: sqlserver2025-librarydb
     restart: unless-stopped
     environment:
       ACCEPT_EULA: Y
+      # Developer edition (default) - full features, free for dev
+      MSSQL_PID: Developer
     env_file:
       - .env
     deploy:
